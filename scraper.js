@@ -3,6 +3,7 @@ const puppeteer = require('puppeteer');
 
 const NAME_SELECTOR = ".sc-fzoyTs";
 const LAST_PLAYED_SELECTOR = ".cDHAWy";
+const PIC_SELECTOR = ".kHDuQj";
 
 class GuildScraper {
 
@@ -43,7 +44,7 @@ class GuildScraper {
 			members[index] = {
 				name: $(elem).find(NAME_SELECTOR).text(),
 				lastPlayed: $(elem).find(LAST_PLAYED_SELECTOR).text(),
-				profilePic: $(elem).find("img").attr("src")
+				profilePic: $(elem).find(PIC_SELECTOR).find("img").attr("src")
 			};
 		});
 
