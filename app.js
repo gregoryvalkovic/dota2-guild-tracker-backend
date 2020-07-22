@@ -1,4 +1,8 @@
 const Scraper = require('./scraper').GuildScraper;
 
 var scraper = new Scraper('45879');
-console.log(scraper.getMembers());
+
+(async () => {
+	const members = await scraper.getMembers();
+	console.log(members);
+})();
