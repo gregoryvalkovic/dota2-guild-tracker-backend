@@ -17,11 +17,16 @@ Returns an array of the guild members of a given guild
 	* {id} = string value
 * Success Response:
 	```json
-	{
-		"name"        : "MacGregorr",
-		"lastPlayed"  : "4 hours ago"
-		"profilePic   : "https://..."
-	}
+	[
+		{
+			"name"        : "MacGregorr",
+			"lastPlayed"  : "4 hours ago"
+			"profilePic   : "https://..."
+		},
+		{
+			...
+		}
+	]
 	```
 
 ***Get inactive members***
