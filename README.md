@@ -23,9 +23,8 @@ Returns an array of the guild members of a given guild
 			"lastPlayed"  : "4 hours ago"
 			"profilePic   : "https://..."
 		},
-		{
-			...
-		}
+		
+		...
 	]
 	```
 
