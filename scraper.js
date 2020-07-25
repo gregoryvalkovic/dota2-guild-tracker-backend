@@ -1,14 +1,17 @@
 const cheerio = require('cheerio');
 const puppeteer = require('puppeteer');
 
-const NAME_SELECTOR = ".sc-fzoyTs";
-const LAST_PLAYED_SELECTOR = ".cDHAWy";
-const PIC_SELECTOR = ".kHDuQj";
 
 class GuildScraper {
 
+
 	constructor(guildID) {
+
+		this.NAME_SELECTOR = ".sc-fzoyTs";
+		this.LAST_PLAYED_SELECTOR = ".cDHAWy";
+		this.PIC_SELECTOR = ".kHDuQj";
 		this.URL = 'https://stratz.com/guilds/' + guildID + '/members'; 
+		console.log(this.URL);
 	}
 
 
@@ -34,6 +37,7 @@ class GuildScraper {
 
 	// Return a JSON array of current members
 	getMembers = async () => {
+
 		const content = await this.getPageContent();
 		const $ = cheerio.load(content);
 
@@ -42,9 +46,9 @@ class GuildScraper {
 
 		$('[__typename=GuildMemberType]').each((index, elem) => {
 			members[index] = {
-				name: $(elem).find(NAME_SELECTOR).text(),
-				lastPlayed: $(elem).find(LAST_PLAYED_SELECTOR).text(),
-				profilePic: $(elem).find(PIC_SELECTOR).find("img").attr("src")
+				name:       $(elem).find(this.NAME_SELECTOR).text(),
+				lastPlayed: $(elem).find(this.LAST_PLAYED_SELECTOR).text(),
+				profilePic: $(elem).find(this.PIC_SELECTOR).find("img").attr("src")
 			};
 		});
 
